@@ -1,0 +1,113 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-cream: var(--cream);
+  --color-leaf: var(--leaf);
+  --color-bark: var(--bark);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 18px 40px -24px color-mix(in oklab, var(--primary) 38%, transparent);
+  --shadow-soft: 0 10px 30px -18px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+:root {
+  --radius: 1.25rem;
+
+  --background: oklch(0.985 0.012 95);
+  --foreground: oklch(0.27 0.04 152);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.04 152);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.04 152);
+
+  --primary: oklch(0.49 0.1 152);
+  --primary-foreground: oklch(0.985 0.012 95);
+
+  --secondary: oklch(0.93 0.04 130);
+  --secondary-foreground: oklch(0.32 0.06 152);
+
+  --muted: oklch(0.95 0.02 110);
+  --muted-foreground: oklch(0.52 0.03 150);
+
+  --accent: oklch(0.82 0.13 78);
+  --accent-foreground: oklch(0.3 0.05 80);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.985 0.012 95);
+
+  --border: oklch(0.9 0.02 120);
+  --input: oklch(0.9 0.02 120);
+  --ring: oklch(0.49 0.1 152);
+
+  --cream: oklch(0.965 0.02 92);
+  --leaf: oklch(0.49 0.1 152);
+  --bark: oklch(0.42 0.05 70);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility container-px {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
